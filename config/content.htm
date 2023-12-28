@@ -313,6 +313,29 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <pre>41136126</pre>
 <pre>41136131</pre>
 <h1>分組作業</h1>
+<p>有關磁力吸引的鋼球循環運動系統, 請參考<a href="https://youtu.be/r_LG8FDt51U?si=D6TZP_XarNUvVOye">這個影片</a>.<span> </span><span>或者透過課程檔案下載密碼觀看<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EcDmEvU3PKREq_noqkc_FeABZhbpfQ5p-f-3LuZn-PAQ1g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=vF0sTa">這個影片</a>.</span></p>
+<p><span>根據<a href="https://www.etsy.com/listing/1253569674/perpetual-machine-simulator-perpetual">這個網站</a>宣稱是此一 Perpetual Motion Simulator 的原始創作者.</span></p>
+<p><span>同時參考 <a href="https://nfuedu-my.sharepoint.com/:b:/g/personal/yen_nfu_edu_tw/ETvxcyDptUtMlUj22ato4RYBJc5ekzCuC1pGFcOmUSXK3w?e=2miuR4">A perpetual motion machine powered by electromagnetism.pdf</a><span> </span>(需要下載密碼)</span></p>
+<p>電腦輔助設計與實習課程的任務一即可根據此一裝置的設計, 先採用電腦輔助設計軟體, 繪製系統所需的 3D 零組件, 然後轉為 STL 格式, import 進入 CoppeliaSim, 接著根據影片說明, 利用近接感測器(例如:<span> </span><a href="https://shopee.tw/%E9%9B%BB%E6%84%9F%E5%BC%8F-%E6%8E%A5%E8%BF%91%E9%96%8B%E9%97%9C-SN04N-SN04P-SN04Y-NPN-%E7%9B%B4%E6%B5%813%E7%B7%9A-%E5%9F%8B%E5%85%A5%E5%BC%8F-%E6%98%8E%E6%AD%A6%E6%A8%A1%E7%B5%84-i.795631261.18472134425">電感式近接開關</a>,<span> </span><a href="https://www.amazon.com/-/en/LY346/dp/B07V4PR84Y">Inductive proximity sensor</a>) 控制電磁鐵開關, 設法透過磁力吸引讓鋼球具有足夠動能返回圓形平台.</p>
+<p>有關利用 Arduino 控制卡與相關電路設計產生電磁力控制的模擬, 請參考<span> </span><a href="https://mde.tw/cad2023/content/PICSimLab.html">PICSimLab</a><span> </span>頁面中的說明.</p>
+<p>一旦完成 CoppeliaSim 與 Arduino 電路設計等機電資系統整合模擬, 就可以進一步利用 3D printer 列印出所需零組件, 結合實體電路設計完成此一系統的虛實整合.</p>
+<p>機電模擬系統:</p>
+<p>下載支援 IPv6 網路協定版本<span> </span><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a><span> </span>(需要下載密碼)</p>
+<p><a href="https://www.coppeliarobotics.com/helpFiles/">CoppeliaSim 使用者手冊</a>,<span> </span><a href="https://mde.tw/pjcopsim">CoppeliaSim 4.3.0 使用手冊網站</a></p>
+<p>模擬磁力的<a href="https://forum.coppeliarobotics.com/viewtopic.php?t=3923">討論</a>,<span> </span><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=1501">1</a>,<span> </span><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=7187">2</a></p>
+<p><a href="https://studywolf.wordpress.com/2016/04/18/using-vrep-for-simulation-of-force-controlled-models/">Force Control Modeling</a></p>
+<p><a href="https://github.com/CoppeliaRobotics/scenes/raw/master/otherScenes/simpleMagnetDemo.ttt">simpleMagnetDemo.ttt</a></p>
+<p>模擬原理:</p>
+<p>Perpetual Motion Simulator 主要的電路設計包含右側軌道下方的電磁鐵, 通電後可產生一定大小的磁吸力, 當圓形鐵球循著軌道由平台孔洞往下滾動, 經過軌道下方近接感測器 (Proximity sensor) 時 (距離 3mm-5mm), 透過感應, 控制電路將會短暫啟動電磁鐵 (10 miliseconds), 促使圓形鐵球加速滾動, 其磁力大小約略與圓形鐵球距離的平方成反比 (<a href="https://en.wikipedia.org/wiki/Computational_electromagnetics">Computational Electromagnetics</a>,<span> </span><a href="https://javalab.org/en/magnetic_field_around_a_coil_en/">磁場模擬</a>).</p>
+<p>因此圓形鐵球除了從平台高度落下時, 將位能轉換為動能外, 與軌道滾動磨擦以及空氣阻力所損耗的運動能, 將額外由電磁鐵開關間所得到的磁力吸引能量進行加速, 以便取得足夠的動能在脫離軌道末端後, 重新回到圓形平台.</p>
+<p><img alt="" height="299" src="https://mde.tw/cadnote/images/perpetual_motion_simulator.png" width="400"/></p>
+<p>(image from<span> </span><a href="https://www.etsy.com/listing/1253569674/perpetual-machine-simulator-perpetual">here</a>)</p>
+<p>電磁力未啟動下的 perpetual motion simulator CoppeliaSim 場景模擬:</p>
+<p><img alt="" height="303" src="https://mde.tw/cadnote/images/perpetual_motion_simulator.gif" width="400"/></p>
+<p><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=650b848e93b8b544db72a044">Images and part files in Onshape</a><span> </span>(STL file import into CoppeliaSim 尺寸由 mm 放大10 倍至 cm, 且 z 軸向上, 場景中圓球直徑為 12.825 cm, 平台圓孔直徑為 20 cm)</p>
+<p><img alt="" height="329" src="https://mde.tw/cadnote/images/perpetual_motion_simulator_scene.gif" width="400"/></p>
+<p><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=651e2855dd2e77079352b937">Perpetual Motion Simulator in Onshape</a>, 轉入 CoppeliaSim 後放大 10 倍, 且 z 軸向上之模擬場景, 下載<span> </span><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVInN4wwqbpAuAv14NeTfpIB-7Q3hshxyaR38R9fd9fbkw?e=jZhpZQ">perpetual motion simulator stage2.7z</a><span> </span>(需要下載密碼)</p>
+<p>有關如何在 Onshape 繪製零組件, 轉出 STL 檔案, 轉入 CoppeliaSim 並進行組件 divide and group, 請參考這個<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EQkDoYGPTlRBi4iK288VMXQB4dH92ieYRUf1c4h5IjHU0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=wYUHv2">教學影片</a>.</p>
 <h2>磁力吸引-影片</h2>
 <p><a href="/downloads/20231228.mp4">繪圖過程</a></p>
 <p>使用SolidWorks 2023繪製</p>
@@ -323,7 +346,8 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <!-- editor2 結束 -->
 <p><img alt="" height="385" src="/images/2.png" width="800"/></p>
 <p></p>
-<p>步驟2 繪製底座支撐桿插槽<img alt="" height="387" src="/images/3.png" width="800"/></p>
+<p>步驟2 繪製底座支撐桿插槽</p>
+<p><img alt="" height="387" src="/images/3.png" width="800"/></p>
 <p><img alt="" height="386" src="/images/4.png" width="800"/></p>
 <p></p>
 <p>步驟3 繪製圓盤草圖，並旋轉掃出</p>
@@ -336,7 +360,8 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <p>步驟5 繪製支撐桿</p>
 <p><img alt="" height="385" src="/images/8.png" width="800"/></p>
 <p></p>
-<p>步驟6 先偏移一平面，接著繪製軌道草圖，並掃出，最後將此特徵镜射<img alt="" height="387" src="/images/9.png" width="800"/></p>
+<p>步驟6 先偏移一平面，接著繪製軌道草圖，並掃出，最後將此特徵镜射</p>
+<p><img alt="" height="387" src="/images/9.png" width="800"/></p>
 <p><img alt="" height="385" src="/images/10.png" width="800"/></p>
 <p><img alt="" height="387" src="/images/11.png" width="800"/></p>
 <p></p>
